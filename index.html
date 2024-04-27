@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>calculate your age </title>
+<style>
+  body {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a8e7e6;
+  }
+  .container {
+    height: 300px;
+    width: 420px;
+    background:#6ebbce;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px black;
+  }
+  .inp{
+    padding: 15px;
+    display: inline-block;
+    margin-left: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+
+  }
+  .btn{
+    display: block;
+    margin:20px 20px;
+    width: 190px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color:black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color:deeppink;
+  }
+  .calci{
+    
+    margin-left: 80px;
+    
+    
+  }
+  .result {
+    margin-top: 20px;
+  }
+  .datee{
+    margin-left: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2 style="text-align: center;">calculate your age in days</h2>
+  <div class="datee">
+  <input type="date" class="inp" id="date1">
+  <input type="date" class="inp" id="date2">
+  </div><br/>
+  <div class="calci">
+  <button onclick="calculateDifference()" class="btn">Calculate</button>
+  <button onclick="resetDifference()" class="btn">Reset</button>
+  </div>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function calculateDifference() {
+    const date1 = new Date(document.getElementById('date1').value);
+    const date2 = new Date(document.getElementById('date2').value);
+    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    document.getElementById('result').innerHTML = diffDays + ' days';
+  }
+  function resetDifference(){
+    document.getElementById("date1").value = "";
+    document.getElementById("date2").value = "";
+    document.getElementById("result").innerHTML = "";
+  }
+</script>
+</body>
+</html>
